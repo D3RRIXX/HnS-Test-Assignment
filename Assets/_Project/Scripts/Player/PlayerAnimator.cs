@@ -3,22 +3,16 @@ using UnityEngine;
 
 namespace HnS.Player
 {
-	public class PlayerAnimator : MonoBehaviour
+	public class PlayerAnimator : CharacterAnimatorBase
 	{
 		[SerializeField] private Animator _character;
 		[SerializeField] private Animator _barrel;
-		[SerializeField] private float _smoothTime;
 
-		private ICharacterMovement _movement;
-		private float _cachedVelocity;
-		private float _currentVelocity;
-
-		private static readonly int VELOCITY = Animator.StringToHash("Velocity");
 		private static readonly int GAME_START = Animator.StringToHash("GameStart");
 
-		private void Awake()
+		protected override void Awake()
 		{
-			_movement = GetComponentInParent<ICharacterMovement>();
+			base.Awake();
 			GameStateManager.StateChanged += OnGameStateChanged;
 		}
 
@@ -37,15 +31,7 @@ namespace HnS.Player
 			}
 		}
 
-		private void LateUpdate()
-		{
-			float targetVelocity = Mathf.InverseLerp(0f, _movement.MaxSpeed, _movement.Velocity.magnitude);
-			_cachedVelocity = Mathf.SmoothDamp(_cachedVelocity, targetVelocity, ref _currentVelocity, _smoothTime, Mathf.Infinity, Time.deltaTime);
-
-			SetAnimatorVelocity(_cachedVelocity);
-		}
-
-		private void SetAnimatorVelocity(float velocity)
+		protected override void SetAnimatorVelocity(float velocity)
 		{
 			ApplyToAllAnimators(x => x.SetFloat(VELOCITY, velocity));
 		}

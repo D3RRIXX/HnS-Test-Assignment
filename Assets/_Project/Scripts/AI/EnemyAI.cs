@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,12 @@ namespace HnS.AI
 
         private void Start()
         {
+            if (_patrolPoints.Length == 0)
+            {
+                Debug.LogException(new ArgumentException("No patrol points assigned!"), this);
+                return;
+            }
+            
             StartMovingToPoint(0);
         }
 
