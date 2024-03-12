@@ -35,12 +35,6 @@ namespace HnS
 
         private void OnGameStateChanged(GameState gameState)
         {
-            if (!_uiScreenMap.ContainsKey(gameState))
-            {
-                Debug.LogWarning($"No UI screen found for game state {gameState}", this);
-                return;
-            }
-            
             foreach ((GameState state, GameObject screen) in _uiScreenMap)
             {
                 screen.SetActive(state == gameState);

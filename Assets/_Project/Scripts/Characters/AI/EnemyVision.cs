@@ -1,4 +1,5 @@
-﻿using HnS.Characters.Player;
+﻿using System.Collections;
+using HnS.Characters.Player;
 using UnityEngine;
 
 namespace HnS.Characters.AI
@@ -11,6 +12,8 @@ namespace HnS.Characters.AI
 		[SerializeField] private LayerMask _targetMask;
 		[SerializeField] private LayerMask _obstacleMask;
 
+		private EnemyAI _ai;
+
 		private static readonly Collider[] OVERLAP_RESULTS = new Collider[50];
 
 		private void OnDrawGizmosSelected()
@@ -19,11 +22,30 @@ namespace HnS.Characters.AI
 			Gizmos.DrawWireSphere(transform.position, _viewDistance);
 		}
 
-		private void Update()
+		private void Awake()
 		{
-			Debug.Log($"Found player: {TryFindPlayer(out _)}");
+			_ai = GetComponent<EnemyAI>();
 		}
 
+		private void Start()
+		{
+			StartCoroutine(LookForPlayer());
+		}
+
+		private IEnumerator LookForPlayer()
+		{
+			while (true)
+			{
+				if (TryFindPlayer(out PlayerMovement player))
+				{
+					_ai.OnSpottedPlayer(player);
+					yield break;
+				}
+
+				yield return null;
+			}
+			
+		}
 		private bool TryFindPlayer(out PlayerMovement player)
 		{
 			int count = Physics.OverlapSphereNonAlloc(transform.position, _viewDistance, OVERLAP_RESULTS, _targetMask);

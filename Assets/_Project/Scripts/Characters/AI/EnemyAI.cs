@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using HnS.Characters.Player;
+using HnS.GameStateSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +13,7 @@ namespace HnS.Characters.AI
         [SerializeField] private Transform[] _patrolPoints;
         [SerializeField] private float _changePointCooldown;
         
+        private EnemyAnimator _animator;
         private NavMeshAgent _agent;
         private Coroutine _moveToPointRoutine;
 
@@ -20,6 +23,7 @@ namespace HnS.Characters.AI
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
+            _animator = GetComponentInChildren<EnemyAnimator>();
         }
 
         private void Start()
@@ -31,6 +35,19 @@ namespace HnS.Characters.AI
             }
             
             StartMovingToPoint(0);
+        }
+
+        public void OnSpottedPlayer(PlayerMovement player)
+        {
+            StopCoroutine(_moveToPointRoutine);
+            
+            _agent.ResetPath();
+            _agent.updateRotation = false;
+            
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            _animator.PlayShootAnim();
+
+            GameStateManager.CurrentState = GameState.PlayerDetected;
         }
 
         private void StartMovingToPoint(int pointIndex)
