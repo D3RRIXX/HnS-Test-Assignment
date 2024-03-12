@@ -1,0 +1,16 @@
+{
+    "name": "HnS",
+    "rootNamespace": "HnS",
+    "references": [
+        "GUID:80463c71100bff940bdc46886b1471cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
