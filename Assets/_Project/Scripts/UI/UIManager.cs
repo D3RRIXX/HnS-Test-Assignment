@@ -13,7 +13,7 @@ namespace HnS
 
         private void Reset()
         {
-            _uiScreens = GetComponentsInChildren<UIScreen>();
+            _uiScreens = GetComponentsInChildren<UIScreen>(true);
         }
 
         private void Awake()

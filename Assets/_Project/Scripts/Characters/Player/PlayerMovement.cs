@@ -9,18 +9,13 @@ namespace HnS.Characters.Player
 		private Rigidbody _rb;
 
 		public Vector3 Velocity { get; private set; }
-		public bool IsHiding { get; private set; }
 
+		public bool IsHiding => Velocity == Vector3.zero;
 		public float MaxSpeed => _moveSpeed;
 
 		private void Awake()
 		{
 			_rb = GetComponent<Rigidbody>();
-		}
-
-		private void Update()
-		{
-			IsHiding = Velocity != Vector3.zero;
 		}
 
 		private void FixedUpdate()
