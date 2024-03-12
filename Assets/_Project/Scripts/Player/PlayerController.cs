@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HnS
+namespace HnS.Player
 {
     public class PlayerController : MonoBehaviour
     {

@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 7218301514275723600}
   _barrel: {fileID: 8695889950853093953}
+  _smoothTime: 0.1
 --- !u!1001 &6077865688020244958
 PrefabInstance:
   m_ObjectHideFlags: 0
