@@ -1,4 +1,4 @@
-﻿namespace HnS
+﻿namespace HnS.GameStateSystem
 {
 	public enum GameState
 	{

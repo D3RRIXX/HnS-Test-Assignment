@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HnS
+namespace HnS.Characters
 {
 	public interface ICharacterMovement
 	{

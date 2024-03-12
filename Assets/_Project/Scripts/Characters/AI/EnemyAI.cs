@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace HnS.AI
+namespace HnS.Characters.AI
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class EnemyAI : MonoBehaviour, ICharacterMovement

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HnS
+namespace HnS.GameStateSystem
 {
 	public class GameStarter : MonoBehaviour
 	{

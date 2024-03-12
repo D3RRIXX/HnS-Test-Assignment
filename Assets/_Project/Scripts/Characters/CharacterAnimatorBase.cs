@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HnS.Player
+namespace HnS.Characters
 {
 	public abstract class CharacterAnimatorBase : MonoBehaviour
 	{

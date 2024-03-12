@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using HnS.GameStateSystem;
+using UnityEngine;
 
-namespace HnS.Player
+namespace HnS.Characters.Player
 {
 	public class PutOnBarrelBehaviour : StateMachineBehaviour
 	{

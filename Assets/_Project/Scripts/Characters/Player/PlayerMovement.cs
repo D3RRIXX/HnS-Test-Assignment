@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HnS.Player
+namespace HnS.Characters.Player
 {
 	public class PlayerMovement : MonoBehaviour, ICharacterMovement
 	{

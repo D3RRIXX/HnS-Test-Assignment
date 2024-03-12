@@ -1,7 +1,6 @@
-﻿using HnS.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace HnS.AI
+namespace HnS.Characters.AI
 {
 	public class EnemyAnimator : CharacterAnimatorBase
 	{
