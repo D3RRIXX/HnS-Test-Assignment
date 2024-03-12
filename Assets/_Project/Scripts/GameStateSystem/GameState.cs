@@ -5,7 +5,8 @@
 		Menu,
 		PreGame,
 		Gameplay,
+		PlayerDetected,
+		LevelFailed,
 		LevelComplete,
-		LevelFailed
 	}
 }

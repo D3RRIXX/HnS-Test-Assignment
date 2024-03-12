@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6077865687375515655}
   - component: {fileID: 333721104}
   - component: {fileID: 333721103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -139,9 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87b6dacb7cfac945956fc3cd4fdda86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _smoothTime: 0.1
   _character: {fileID: 7218301514275723600}
   _barrel: {fileID: 8695889950853093953}
-  _smoothTime: 0.1
 --- !u!1001 &6077865688020244958
 PrefabInstance:
   m_ObjectHideFlags: 0
