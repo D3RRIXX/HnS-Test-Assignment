@@ -19,23 +19,19 @@ namespace HnS.Player
 		private void Awake()
 		{
 			_movement = GetComponentInParent<PlayerMovement>();
-		}
-
-		private void Start()
-		{
-			GameStateManager.StateChanged += OnStateChanged;
+			GameStateManager.StateChanged += OnGameStateChanged;
 		}
 
 		private void OnDestroy()
 		{
-			GameStateManager.StateChanged -= OnStateChanged;
+			GameStateManager.StateChanged -= OnGameStateChanged;
 		}
 
-		private void OnStateChanged(GameState gameState)
+		private void OnGameStateChanged(GameState gameState)
 		{
 			switch (gameState)
 			{
-				case GameState.Gameplay:
+				case GameState.PreGame:
 					ApplyToAllAnimators(x => x.SetTrigger(GAME_START));
 					break;
 			}

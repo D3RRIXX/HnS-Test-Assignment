@@ -7,9 +7,29 @@ namespace HnS.Player
         [SerializeField] private Joystick _joystick;
         [SerializeField] private PlayerMovement _movement;
 
+        private bool _movementEnabled;
+
+        private void Awake()
+        {
+            GameStateManager.StateChanged += OnGameStateChanged;
+        }
+        
+		private void OnDestroy()
+		{
+			GameStateManager.StateChanged -= OnGameStateChanged;
+		}
+
+        private void OnGameStateChanged(GameState state)
+        {
+            _movementEnabled = state == GameState.Gameplay;
+        }
+
         private void Update()
         {
-            _movement.MoveInDirection(_joystick.Direction);
+			if (!_movementEnabled)
+				return;
+            
+            _movement.ConsumeMovementInput(_joystick.Direction);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace HnS
 {
@@ -16,6 +17,7 @@ namespace HnS
 				if (currentState == value)
 					return;
 
+				Debug.Log($"Game State changed to {value}");
 				currentState = value;
 				StateChanged?.Invoke(value);
 			}
