@@ -9,7 +9,7 @@ namespace HnS.Player
 		[SerializeField] private Animator _barrel;
 		[SerializeField] private float _smoothTime;
 
-		private PlayerMovement _movement;
+		private ICharacterMovement _movement;
 		private float _cachedVelocity;
 		private float _currentVelocity;
 
@@ -18,7 +18,7 @@ namespace HnS.Player
 
 		private void Awake()
 		{
-			_movement = GetComponentInParent<PlayerMovement>();
+			_movement = GetComponentInParent<ICharacterMovement>();
 			GameStateManager.StateChanged += OnGameStateChanged;
 		}
 

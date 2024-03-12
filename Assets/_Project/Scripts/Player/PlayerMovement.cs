@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HnS.Player
 {
-	public class PlayerMovement : MonoBehaviour
+	public class PlayerMovement : MonoBehaviour, ICharacterMovement
 	{
 		[SerializeField] private float _moveSpeed = 3f;
 
